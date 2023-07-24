@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Purchase</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h3>You have selected...[]</h3>
+                
+                <h:outputLabel for="tickets">Enter amount of tickets (1 ticket minimum) Each ticket is $10:</h:outputLabel>
+                <h:inputText id="tickets" value="#{purchasePageBean.tickets}" validatorMessage="at least 1 ticket required"
+                             required="true" requiredMessage="Ticket amount required">
+                    <f:validateRegex pattern="[1-9]+" />
+                    <f:validateLength minimum="1"/>                
+                </h:inputText> 
+                
+                <h:outputLabel for="creditcard">Enter Credit Card information (16 digits):</h:outputLabel>
+                <h:inputText id="creditcard" value="#{purchasePageBean.creditcardnumber}" validatorMessage="16 digits required" 
+                             required="true" requiredMessage="Credit card is required">
+                    <f:validateRegex pattern="[1-9]*" />
+                    <f:validateLength minimum="16" maximum="16" />                
+                </h:inputText> 
+                
+                <h:outputLabel for="zipcode">Enter Zipcode (5 digits):</h:outputLabel>
+                <h:inputText id="creditcard" value="#{purchasePageBean.zipcode}" validatorMessage="5 digits required"
+                             required="true" requiredMessage="Zipcode is required">
+                    <f:validateRegex pattern="[1-9]*" />
+                    <f:validateLength minimum="5" maximum="5" />                
+                </h:inputText>
+                
+                <h:commandButton value="Submit" action="PurchaseConfirmationPage.xhtml"></h:commandButton>  
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+
